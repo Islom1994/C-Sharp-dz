@@ -1,89 +1,79 @@
-﻿// Задача 10: Напишите программу, которая включает в себя трехзначное число
-// и на выходе показывает вторую цифру этого числа.
-// 456 -> 5
-// 782 -> 8
-// 918 -> 1
+﻿
+// Задача 64: Задайте значение N. Напишите программу, 
+// которая выведет все натуральные числа в промежутке от N до 1.
+// Выполнить с помощью рекурсии
 
+// using System;
 
-// int num = new Random().Next(100,1000);
-// Console.WriteLine(num); 
-// int a = num %100/10;
-// int b = num %10;
-// Console.WriteLine(a);
-
-
-
-
-// Задача 13: Напишите программу, которая выводит 
-// треть цифру заданного числа или сообщает,
-// что других цифр нет.
-// 645 -> 5
-// 78 -> других цифр нет
-// 32679 -> 6 
-
-// Console.Write("Введите число -");
-// int num = int.Parse(Console.ReadLine()!);
-// if(num <= 99)
+// int n = InputInt("Введите положительное число");
+// int m = 1;
+// if (n < 1)
 // {
-//   Console.WriteLine("Третий цифры нет");
+//     Console.WriteLine("Ввели не положительное число");
 // }
-// if(num >= 100 && num <= 999)
+// Console.WriteLine(NaturalNumber(n, m));
+
+// int NaturalNumber(int n, int m)
 // {
-//   int num2 = num % 10;
-//   Console.WriteLine(num2);
+//     if (n == m)
+//         return n;
+//     else
+//         Console.Write($"{NaturalNumber(n, m + 1)}, ");
+//     return m;
 // }
-// if(num >= 1000 && num < 10000)
+
+// int InputInt(string output)
 // {
-//   int num2 = num %100/10;
-//   Console.WriteLine(num2);
-// }
-// if(num >= 10000 && num < 100000)
-// {
-// int num2 = num % 1000/100;
-// Console.WriteLine(num2);
+//     Console.Write(output);
+//     return int.Parse(Console.ReadLine());
 // }
 
 
+// Задача 66: Задайте значения M и N. Напишите программу, 
+// которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+// using System;
+
+// int m = InputInt("Введите M:");
+// int n = InputInt("Введите N:");
+// Console.WriteLine($"Сумма элементов от {m} до {n} = {CountNaturalSum(m, n)}");
+
+// int InputInt(string output)
+// {
+//     Console.Write(output);
+//     return int.Parse(Console.ReadLine());
+// }
+
+// int CountNaturalSum(int m, int n)
+// {
+//     if (m == n)
+//         return n;
+//     return n + CountNaturalSum(m, n - 1);
+// }
 
 
-//15Напишите программу, которая принимает 
-//на вход цифру, обозначающую день недели,
-// и проверяет, является ли этот день выходным.
+// Задача 68: Напишите программу вычисления функции Аккермана с помощью 
+// рекурсии. Даны два неотрицательных числа m и n.
 
-// 6 -> да
-// 7 -> да
-// 1 -> нет
+// using System;
 
+// Console.WriteLine("Введите два положительных числа: M и N.");
+// int m = InputInt("Введите M: ");
+// int n = InputInt("Введите N: ");
+// Console.WriteLine($"A({m}, {n}) = {Akkerman(m, n)}");
 
-// Console.WriteLine("Введите число 1.до.7");
-// int number = int.Parse(Console.ReadLine()!);
-// if (number == 1)
+// int InputInt(string output)
 // {
-//   System.Console.WriteLine("Понидельник нет");
+//     Console.Write(output);
+//     return int.Parse(Console.ReadLine());
 // }
-// if (number == 2)
+
+// int Akkerman(int m, int n)
 // {
-//   System.Console.WriteLine("Вторник нет");
+//     if (m == 0)
+//         return n + 1;
+//     if (m > 0 && n == 0)
+//         return Akkerman(m - 1, 1);
+//     else
+//         return Akkerman(m - 1, Akkerman(m, n - 1));
 // }
-// if (number == 3)
-// {
-//   System.Console.WriteLine("Среда нет");
-// }
-// if (number == 4)
-// {
-//   System.Console.WriteLine("Четверг нет");
-// }
-// if (number == 5)
-// {
-//   System.Console.WriteLine("Пятница нет");
-// }
-// if (number == 6)
-// {
-//   System.Console.WriteLine("Субота нет ");
-// }
-// if (number == 7)
-// {
-//   System.Console.WriteLine("Воскресения");
-// }
-// if (number >= 7)
-//   Console.WriteLine("(Выходной)");
